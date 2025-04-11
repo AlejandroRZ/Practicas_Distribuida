@@ -30,12 +30,8 @@ def construir_grafica(n):
     ids = list(range(0, n)) 
     grafica = {ids[i]: [] for i in range(n)} 
 
-    for i in range(n):    
-        # Vecino izquierdo: anterior en la lista o el último si estamos en el primero
-        izquierdo = ids[i-1] if i > 0 else ids[-1]
-        # Vecino derecho: siguiente en la lista o el primero si estamos en el último
-        derecho = ids[i+1] if i < n-1 else ids[0]
-        grafica[ids[i]] = [izquierdo, derecho]  
+    for i in range(n):  
+        grafica[ids[i]] = [(i-1) % n, (i+1) % n]  
     
     return grafica
 

@@ -39,12 +39,13 @@ def construir_grafica(n):
     
     # Conectar cada vértice con los demás con probabilidad del 50%
     for i in range(n):
-        for j in range(n):
-            # No conectar consigo mismo, ni repetir conexiones existentes
-            if i != j and j not in grafica[i]:
+        j = i + 1   # No conectar consigo mismo, ni repetir conexiones existentes
+        while j < n:            
+            if j not in grafica[i]:
                 if random.random() < 0.5:  
                     grafica[i].append(j)
                     grafica[j].append(i)
+            j += 1           
     
     return grafica
 
